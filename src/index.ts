@@ -10,4 +10,6 @@ const parsedMatches = matches.split("\n").map((row: string): string[] => {
   return row.split(",");
 });
 
+// TODO: Add data analysis for parsedMatches. Will have to convert string data into a Number to do the calculations
+
 console.log(parsedMatches);
