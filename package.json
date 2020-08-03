@@ -4,7 +4,9 @@
   "description": "NodeJS application written in TypeScript that takes a CSV file as an input. The application parses and analyzes the data and then creates a detailed report.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start:build": "tsc -w",
+    "start:run": "nodemon build/index.js",
+    "start": "concurrently npm:start:*"
   },
   "repository": {
     "type": "git",
