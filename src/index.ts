@@ -10,11 +10,12 @@ const parsedMatches = matches.split("\n").map((row: string): string[] => {
   return row.split(",");
 });
 
-const MatchResult = {
-  HomeWin: "H",
-  AwayWin: "A",
-  Draw: "D",
-};
+// Match outcome results
+enum MatchResult {
+  HomeWin = "H",
+  AwayWin = "A",
+  Draw = "D",
+}
 
 let manUnitedWins = 0;
 
