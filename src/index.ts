@@ -10,6 +10,15 @@ const parsedMatches = matches.split("\n").map((row: string): string[] => {
   return row.split(",");
 });
 
-// TODO: Add data analysis for parsedMatches. Will have to convert string data into a Number to do the calculations
+let manUnitedWins = 0;
 
-console.log(parsedMatches);
+// Loop through parsed matches and find the times that Man United wins.
+for (let match of parsedMatches) {
+  if (match[1] === "Man United" && match[5] === "H") {
+    manUnitedWins++;
+  } else if (match[2] === "Man United" && match[5] === "A") {
+    manUnitedWins++;
+  }
+}
+
+console.log(`Man United won ${manUnitedWins} games`);
