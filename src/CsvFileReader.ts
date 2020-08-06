@@ -2,9 +2,19 @@ import fs from "fs";}
 import { dateStringToDate } from './utils';
 import { MatchResult } from "./MatchResult";
 
+/**
+ * Class used to read a CSV file
+ * @export
+ * @class CsvFileReader
+ */
 export class CsvFileReader {
   data: string[][] = [];
 
+  /**
+   * Creates an instance of CsvFileReader.
+   * @param {string} filename - The name of the file to read
+   * @memberof CsvFileReader
+   */
   constructor(public filename: string) {}
 
   read(): void {
