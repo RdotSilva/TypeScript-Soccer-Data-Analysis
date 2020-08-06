@@ -11,7 +11,7 @@ type MatchData = [Date, string, string, number, number, MatchResult, string];
  * @class CsvFileReader
  */
 export class CsvFileReader {
-  data: string[][] = [];
+  data: MatchData[] = [];
 
   /**
    * Creates an instance of CsvFileReader.
@@ -28,7 +28,7 @@ export class CsvFileReader {
       .split("\n")
       .map((row: string): string[] => {
         return row.split(",");
-      }).map((row: string[]): (Date | string | number | MatchResult) []  => {
+      }).map((row: string[]): MatchData => {
         return [
           dateStringToDate(row[0]),
           row[1],
