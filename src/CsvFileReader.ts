@@ -2,6 +2,9 @@ import fs from "fs";}
 import { dateStringToDate } from './utils';
 import { MatchResult } from "./MatchResult";
 
+// Tuple used to describe how the match data should be mapped
+type MatchData = [Date, string, string, number, number, MatchResult, string];
+
 /**
  * Class used to read a CSV file
  * @export
