@@ -2,6 +2,8 @@ import fs from "fs";}
 import { dateStringToDate } from './utils';
 import { MatchResult } from "./MatchResult";
 
+// TODO: Refactor CsvFileReader to be reusable. As it stands there are too many references to MatchData and this code can only be used for a very specific CSV file.
+
 // Tuple used to describe how the match data should be mapped
 type MatchData = [Date, string, string, number, number, MatchResult, string];
 
