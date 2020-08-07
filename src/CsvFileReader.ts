@@ -19,8 +19,19 @@ export abstract class CsvFileReader {
    */
   constructor(public filename: string) {}
 
+  /**
+   * Maps a row of data into a MatchData type
+   * @abstract
+   * @param {string[]} row - The row of data to map
+   * @returns {MatchData}
+   * @memberof CsvFileReader
+   */
   abstract mapRow(row: string[]): MatchData;
 
+  /**
+   * Reads the data line by line from a CSV file and maps it 
+   * @memberof CsvFileReader
+   */
   read(): void {
     this.data = fs
       .readFileSync(this.filename, {
