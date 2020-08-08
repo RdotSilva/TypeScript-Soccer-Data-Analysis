@@ -9,8 +9,8 @@ type MatchData = [Date, string, string, number, number, MatchResult, string];
  * @export
  * @class CsvFileReader
  */
-export abstract class CsvFileReader {
-  data: MatchData[] = [];
+export abstract class CsvFileReader<T> {
+  data: T[] = [];
 
   /**
    * Creates an instance of CsvFileReader.
@@ -20,13 +20,13 @@ export abstract class CsvFileReader {
   constructor(public filename: string) {}
 
   /**
-   * Maps a row of data into a MatchData type
+   * Maps a row of data into a T type
    * @abstract
    * @param {string[]} row - The row of data to map
-   * @returns {MatchData}
+   * @returns {TypeOfData}
    * @memberof CsvFileReader
    */
-  abstract mapRow(row: string[]): MatchData;
+  abstract mapRow(row: string[]): T;
 
   /**
    * Reads the data line by line from a CSV file and maps it 
