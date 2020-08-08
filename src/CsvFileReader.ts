@@ -1,8 +1,4 @@
-import fs from "fs";}
-import { MatchResult } from "./MatchResult";
-
-// Tuple used to describe how the match data should be mapped
-type MatchData = [Date, string, string, number, number, MatchResult, string];
+import fs from "fs";
 
 /**
  * Class used to read a CSV file
@@ -29,7 +25,7 @@ export abstract class CsvFileReader<T> {
   abstract mapRow(row: string[]): T;
 
   /**
-   * Reads the data line by line from a CSV file and maps it 
+   * Reads the data line by line from a CSV file and maps it
    * @memberof CsvFileReader
    */
   read(): void {
@@ -40,6 +36,7 @@ export abstract class CsvFileReader<T> {
       .split("\n")
       .map((row: string): string[] => {
         return row.split(",");
-      }).map(this.mapRow);
+      })
+      .map(this.mapRow);
   }
 }
