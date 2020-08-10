@@ -8,11 +8,13 @@ interface DataReader {
 }
 
 export class MatchReader {
+  matches: MatchData[] = [];
+
   constructor(public reader: DataReader) {}
 
   load(): void {
     this.reader.read();
-    this.reader.data.map(
+    this.matches = this.reader.data.map(
       (row: string[]): MatchData => {
         return [
           dateStringToDate(row[0]),
