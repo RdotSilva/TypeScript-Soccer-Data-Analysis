@@ -9,8 +9,17 @@ interface DataReader {
 export class MatchReader {
   matches: MatchData[] = [];
 
+  /**
+   *Creates an instance of MatchReader.
+   * @param {DataReader} reader - The reader to use
+   * @memberof MatchReader
+   */
   constructor(public reader: DataReader) {}
 
+  /**
+   * Convert each row into readable MatchData
+   * @memberof MatchReader
+   */
   load(): void {
     this.reader.read();
     this.matches = this.reader.data.map(
