@@ -4,6 +4,7 @@ import { Summary } from "./Summary";
 import { ConsoleReport } from "./reportTargets/ConsoleReport";
 import { WinsAnalysis } from "./analyzers/WinsAnalysis";
 import { GoalsScoredAnalysis } from "./analyzers/GoalsScoredAnalysis";
+import { WinnerByDateAnalysis } from "./analyzers/WinnerByDateAnalysis";
 
 // Create an object that satisfies that 'DataReader' interface
 const csvFileReader = new CsvFileReader("football.csv");
@@ -30,3 +31,11 @@ const goalsScoredSummary = new Summary(
 );
 
 goalsScoredSummary.buildAndPrintReport(matches);
+
+// Create a summary for Winner by date
+const winnerByDateSummary = new Summary(
+  new WinnerByDateAnalysis(new Date(2018, 1, 9)),
+  new ConsoleReport()
+);
+
+winnerByDateSummary.buildAndPrintReport(matches);
