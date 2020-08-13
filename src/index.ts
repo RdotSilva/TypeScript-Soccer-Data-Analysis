@@ -3,6 +3,7 @@ import { CsvFileReader } from "./CsvFileReader";
 import { Summary } from "./Summary";
 import { ConsoleReport } from "./reportTargets/ConsoleReport";
 import { WinsAnalysis } from "./analyzers/WinsAnalysis";
+import { GoalsScoredAnalysis } from "./analyzers/GoalsScoredAnalysis";
 
 // Create an object that satisfies that 'DataReader' interface
 const csvFileReader = new CsvFileReader("football.csv");
@@ -21,3 +22,11 @@ const summary = new Summary(
 );
 
 summary.buildAndPrintReport(matches);
+
+// Create a summary for Man United Goals
+const goalsScoredSummary = new Summary(
+  new GoalsScoredAnalysis("Man United"),
+  new ConsoleReport()
+);
+
+goalsScoredSummary.buildAndPrintReport(matches);
