@@ -2,6 +2,8 @@ import { OutputTarget } from "../Summary";
 import fs from "fs";
 
 export class HtmlReport implements OutputTarget {
+  constructor(public reportPath: string) {}
+
   print(report: string): void {
     const html = `
       <div>
@@ -10,6 +12,6 @@ export class HtmlReport implements OutputTarget {
       </div>
     `;
 
-    fs.writeFileSync("report.html", html);
+    fs.writeFileSync(this.reportPath, html);
   }
 }

@@ -18,7 +18,10 @@ matchReader.load();
 const matches = matchReader.matches;
 
 // Create a summary for Man United wins
-const summary = new Summary(new WinsAnalysis("Man United"), new HtmlReport());
+const summary = new Summary(
+  new WinsAnalysis("Man United"),
+  new HtmlReport("report.html")
+);
 
 summary.buildAndPrintReport(matches);
 
