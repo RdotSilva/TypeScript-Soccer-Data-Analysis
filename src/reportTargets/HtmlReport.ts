@@ -1,4 +1,5 @@
 import { OutputTarget } from "../Summary";
+import fs from "fs";
 
 export class HtmlReport implements OutputTarget {
   print(report: string): void {
@@ -8,5 +9,7 @@ export class HtmlReport implements OutputTarget {
         <div>${report}</div>
       </div>
     `;
+
+    fs.writeFileSync("report.html", html);
   }
 }
