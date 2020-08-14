@@ -1,17 +1,11 @@
 import { MatchReader } from "./MatchReader";
-import { CsvFileReader } from "./CsvFileReader";
 import { Summary } from "./Summary";
 import { ConsoleReport } from "./reportTargets/ConsoleReport";
-import { WinsAnalysis } from "./analyzers/WinsAnalysis";
 import { GoalsScoredAnalysis } from "./analyzers/GoalsScoredAnalysis";
 import { WinnerByDateAnalysis } from "./analyzers/WinnerByDateAnalysis";
-import { HtmlReport } from "./reportTargets/HtmlReport";
 
-// Create an object that satisfies that 'DataReader' interface
-const csvFileReader = new CsvFileReader("football.csv");
-
-// Create an instance of MatchReader and pass in something satisfying the 'DataReader' interface
-const matchReader = new MatchReader(csvFileReader);
+// Create MatchReader using static method.
+const matchReader = MatchReader.fromCsv("football.csv");
 matchReader.load();
 
 // The match data
@@ -26,9 +20,9 @@ const manUnitedWinsAnalysisSummary = Summary.winsAnalysisWithHtmlReport(
 manUnitedWinsAnalysisSummary.buildAndPrintReport(matches);
 
 // Create a summary for Man United Goals
-const goalsScoredSummary = new Summary(
-  new GoalsScoredAnalysis("Man United"),
-  new ConsoleReport()
+const goalsScoredSummary = Summary.goalsAnalysisWithHtmlReport(
+  "Man United",
+  "GoalsScoredReport.html"
 );
 
 goalsScoredSummary.buildAndPrintReport(matches);
