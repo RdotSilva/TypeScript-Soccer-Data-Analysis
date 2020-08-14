@@ -17,13 +17,13 @@ matchReader.load();
 // The match data
 const matches = matchReader.matches;
 
-// Create a summary for Man United wins
-const summary = new Summary(
-  new WinsAnalysis("Man United"),
-  new HtmlReport("report.html")
+// Create a summary for Man United wins. This example uses a static method.
+const manUnitedWinsAnalysisSummary = Summary.winsAnalysisWithHtmlReport(
+  "Man United",
+  "report.html"
 );
 
-summary.buildAndPrintReport(matches);
+manUnitedWinsAnalysisSummary.buildAndPrintReport(matches);
 
 // Create a summary for Man United Goals
 const goalsScoredSummary = new Summary(
