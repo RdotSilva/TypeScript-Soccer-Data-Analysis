@@ -2,6 +2,7 @@ import { MatchData } from "./MatchData";
 import { WinsAnalysis } from "./analyzers/WinsAnalysis";
 import { HtmlReport } from "./reportTargets/HtmlReport";
 import { GoalsScoredAnalysis } from "./analyzers/GoalsScoredAnalysis";
+import { WinnerByDateAnalysis } from "./analyzers/WinnerByDateAnalysis";
 
 export interface Analyzer {
   run(matches: MatchData[]): string;
@@ -17,6 +18,16 @@ export class Summary {
     reportPath: string
   ): Summary {
     return new Summary(new WinsAnalysis(teamName), new HtmlReport(reportPath));
+  }
+
+  static winnerByDateAnalysisWithHtmlReport(
+    date: Date,
+    reportPath: string
+  ): Summary {
+    return new Summary(
+      new WinnerByDateAnalysis(date),
+      new HtmlReport(reportPath)
+    );
   }
 
   static goalsAnalysisWithHtmlReport(
